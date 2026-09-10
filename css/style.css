@@ -128,12 +128,83 @@ h1, h2, h3, h4, .font-heading {
   transform: translateY(0);
 }
 
-/* Menú mobile */
+/* ---------- Menú mobile (drawer lateral) ---------- */
+
+/*
+  Panel: cerrado se saca del viewport y además se apaga con visibility +
+  pointer-events, para que no quede una franja invisible clickeable ni
+  scroll horizontal fantasma a la derecha.
+*/
 .mobile-menu {
   transform: translateX(100%);
-  transition: transform 0.3s ease;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.35s;
 }
 
 .mobile-menu.is-open {
   transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Velo oscuro detrás del panel */
+.mobile-menu-backdrop {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.mobile-menu-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/*
+  Entrada en cascada de los items: cada hijo del <nav> entra desplazado desde
+  la derecha con un retardo creciente, arrancando cuando el panel ya avanzó.
+*/
+.mobile-menu nav > * {
+  opacity: 0;
+  transform: translateX(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-menu.is-open nav > * {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-menu.is-open nav > *:nth-child(1) { transition-delay: 0.12s; }
+.mobile-menu.is-open nav > *:nth-child(2) { transition-delay: 0.18s; }
+.mobile-menu.is-open nav > *:nth-child(3) { transition-delay: 0.24s; }
+.mobile-menu.is-open nav > *:nth-child(4) { transition-delay: 0.30s; }
+.mobile-menu.is-open nav > *:nth-child(5) { transition-delay: 0.36s; }
+.mobile-menu.is-open nav > *:nth-child(6) { transition-delay: 0.42s; }
+
+/*
+  Item activo (página actual o sección en pantalla): celeste con letras blancas.
+  Se antepone .mobile-menu para ganarle en especificidad a las utilidades de
+  Tailwind del propio link (text-secondary-700, etc.).
+*/
+.mobile-menu .mobile-nav-link[aria-current] {
+  background-color: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Accesibilidad: sin desplazamientos ni cascada si el usuario reduce el movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu,
+  .mobile-menu-backdrop,
+  .mobile-menu nav > * {
+    transition-duration: 0.01ms;
+    transition-delay: 0ms;
+  }
+
+  .mobile-menu nav > * {
+    transform: none;
+  }
 }

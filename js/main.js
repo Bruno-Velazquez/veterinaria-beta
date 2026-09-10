@@ -8,25 +8,99 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuBtn = document.getElementById("mobile-menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
   const closeMenuBtn = document.getElementById("mobile-menu-close");
+  const menuBackdrop = document.getElementById("mobile-menu-backdrop");
+
+  function toggleMobileMenu(open) {
+    mobileMenu.classList.toggle("is-open", open);
+    mobileMenu.setAttribute("aria-hidden", String(!open));
+    menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+
+    if (menuBackdrop) {
+      menuBackdrop.classList.toggle("is-open", open);
+    }
+
+    // Bloquea el scroll del body para que la página no se mueva detrás del panel
+    document.body.style.overflow = open ? "hidden" : "";
+  }
 
   function openMobileMenu() {
-    mobileMenu.classList.add("is-open");
-    mobileMenu.setAttribute("aria-hidden", "false");
-    menuBtn.setAttribute("aria-expanded", "true");
+    toggleMobileMenu(true);
   }
 
   function closeMobileMenu() {
-    mobileMenu.classList.remove("is-open");
-    mobileMenu.setAttribute("aria-hidden", "true");
-    menuBtn.setAttribute("aria-expanded", "false");
+    toggleMobileMenu(false);
   }
 
   if (menuBtn && mobileMenu && closeMenuBtn) {
     menuBtn.addEventListener("click", openMobileMenu);
-    closeMenuBtn.addEventListener("click", closeMobileMenu);
+
+    closeMenuBtn.addEventListener("click", () => {
+      closeMobileMenu();
+      menuBtn.focus();
+    });
+
     mobileMenu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", closeMobileMenu);
     });
+
+    if (menuBackdrop) {
+      menuBackdrop.addEventListener("click", () => {
+        closeMobileMenu();
+        menuBtn.focus();
+      });
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mobileMenu.classList.contains("is-open")) {
+        closeMobileMenu();
+        menuBtn.focus();
+      }
+    });
+  }
+
+  /* ---------- Sección activa en el menú mobile (scroll-spy) ---------- */
+  /*
+    Resalta en celeste el item de la sección que se está viendo. Sólo corre en
+    index.html: en productos.html no existen estas secciones y el item activo
+    ("Productos") ya viene marcado con aria-current="page" en el HTML.
+  */
+  const spySections = ["inicio", "servicios", "quienes-somos", "sucursal"]
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+
+  if (spySections.length && "IntersectionObserver" in window) {
+    const spyLinks = new Map();
+    document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+      const hash = link.getAttribute("href");
+      if (hash && hash.startsWith("#")) {
+        spyLinks.set(hash.slice(1), link);
+      }
+    });
+
+    function setActiveSection(id) {
+      spyLinks.forEach((link, sectionId) => {
+        if (sectionId === id) {
+          link.setAttribute("aria-current", "true");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    }
+
+    // Gana la sección que cruza el medio del viewport
+    const spyObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+
+    spySections.forEach((section) => spyObserver.observe(section));
   }
 
   /* ---------- Dropdown "Servicios" (desktop) ---------- */

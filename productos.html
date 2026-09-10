@@ -136,36 +136,52 @@
       </div>
     </div>
 
-    <!-- Menú mobile -->
-    <div
-      id="mobile-menu"
-      class="mobile-menu fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white shadow-2xl md:hidden"
-      aria-hidden="true"
-    >
-      <div class="flex items-center justify-between px-5 h-16 border-b border-primary-100">
-        <span class="font-heading font-bold text-secondary-700">Menú</span>
-        <button id="mobile-menu-close" type="button" aria-label="Cerrar menú" class="flex h-10 w-10 items-center justify-center rounded-lg hover:bg-primary-50">
-          <i data-lucide="x" class="h-6 w-6"></i>
-        </button>
-      </div>
-      <nav class="flex flex-col p-5 gap-1" aria-label="Navegación mobile">
-        <a href="index.html#inicio" class="rounded-lg px-4 py-3 text-base font-medium text-secondary-700 hover:bg-primary-50">Inicio</a>
-        <a href="index.html#servicios" class="rounded-lg px-4 py-3 text-base font-medium text-secondary-700 hover:bg-primary-50">Servicios</a>
-        <a href="index.html#quienes-somos" class="rounded-lg px-4 py-3 text-base font-medium text-secondary-700 hover:bg-primary-50">Quiénes Somos</a>
-        <a href="index.html#sucursal" class="rounded-lg px-4 py-3 text-base font-medium text-secondary-700 hover:bg-primary-50">Sucursal</a>
-        <a href="productos.html" class="rounded-lg px-4 py-3 text-base font-semibold text-primary-600 bg-primary-50">Productos</a>
-        <a
-          href="https://wa.me/5493548000000?text=Hola%2C%20quiero%20coordinar%20un%20turno"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-5 py-3 text-base font-semibold text-white"
-        >
-          <i data-lucide="message-circle" class="h-5 w-5"></i>
-          Coordinar Turno por WhatsApp
-        </a>
-      </nav>
-    </div>
   </header>
+
+  <!-- Velo oscuro del menú mobile -->
+  <div
+    id="mobile-menu-backdrop"
+    class="mobile-menu-backdrop fixed inset-0 z-[55] bg-secondary-900/60 md:hidden"
+  ></div>
+
+  <!--
+    Menú mobile: va FUERA del <header> a propósito.
+    El header usa backdrop-blur, y un backdrop-filter distinto de "none" convierte al
+    elemento en bloque contenedor de sus descendientes position:fixed. Estando adentro,
+    el inset-y-0 del panel se resolvía contra la caja del header (64px de alto) en vez
+    del viewport: el fondo blanco medía 64px y los links quedaban sin fondo, pisando el
+    contenido de la página.
+    z-[55]/z-[60] para quedar por encima del botón flotante de WhatsApp (z-50).
+  -->
+  <div
+    id="mobile-menu"
+    class="mobile-menu fixed inset-y-0 right-0 z-[60] w-[85%] max-w-sm bg-white shadow-2xl md:hidden"
+    aria-hidden="true"
+  >
+    <div class="flex items-center justify-between px-5 h-16 border-b border-primary-100">
+      <span class="font-heading font-bold text-secondary-700">Menú</span>
+      <button id="mobile-menu-close" type="button" aria-label="Cerrar menú" class="flex h-10 w-10 items-center justify-center rounded-lg text-secondary-700 transition-colors hover:bg-primary-50">
+        <i data-lucide="x" class="h-6 w-6"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col p-5 gap-1" aria-label="Navegación mobile">
+      <a href="index.html#inicio" class="mobile-nav-link rounded-lg px-4 py-3 text-base font-medium text-secondary-700 transition-colors hover:bg-primary-500 hover:text-white">Inicio</a>
+      <a href="index.html#servicios" class="mobile-nav-link rounded-lg px-4 py-3 text-base font-medium text-secondary-700 transition-colors hover:bg-primary-500 hover:text-white">Servicios</a>
+      <a href="index.html#quienes-somos" class="mobile-nav-link rounded-lg px-4 py-3 text-base font-medium text-secondary-700 transition-colors hover:bg-primary-500 hover:text-white">Quiénes Somos</a>
+      <a href="index.html#sucursal" class="mobile-nav-link rounded-lg px-4 py-3 text-base font-medium text-secondary-700 transition-colors hover:bg-primary-500 hover:text-white">Sucursal</a>
+      <!-- Página actual: aria-current lo pinta en celeste con letras blancas (ver style.css) -->
+      <a href="productos.html" aria-current="page" class="mobile-nav-link rounded-lg px-4 py-3 text-base font-medium text-secondary-700 transition-colors hover:bg-primary-500 hover:text-white">Productos</a>
+      <a
+        href="https://wa.me/5493548000000?text=Hola%2C%20quiero%20coordinar%20un%20turno"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-5 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-600"
+      >
+        <i data-lucide="message-circle" class="h-5 w-5 shrink-0"></i>
+        Coordinar Turno por WhatsApp
+      </a>
+    </nav>
+  </div>
 
   <main>
     <!-- ===================== ENCABEZADO DE PÁGINA ===================== -->
