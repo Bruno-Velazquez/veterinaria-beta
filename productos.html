@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productos | Veterinaria La Falda</title>
+  <meta name="description" content="Catálogo de productos de Veterinaria La Falda: alimento, salud, higiene y accesorios para tu mascota en La Falda, Córdoba." />
+
+  <!-- Rendimiento: preconnect a los orígenes externos usados -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+  <link rel="preconnect" href="https://unpkg.com" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS vía CDN + configuración de marca (misma paleta que index.html) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: "#f0f9ff",
+              100: "#e0f2fe",
+              200: "#bae6fd",
+              300: "#7dd3fc",
+              400: "#38bdf8",
+              500: "#0ea5e9",
+              600: "#0284c7",
+              700: "#0369a1",
+            },
+            secondary: {
+              600: "#123c69",
+              700: "#0b2545",
+              800: "#081a33",
+              900: "#051021",
+            },
+          },
+          fontFamily: {
+            heading: ["Poppins", "system-ui", "sans-serif"],
+            body: ["Inter", "system-ui", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="font-body text-secondary-800 bg-white antialiased">
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-primary-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 font-heading font-bold text-lg md:text-xl text-secondary-700">
+          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-primary-500 text-white">
+            <i data-lucide="paw-print" class="h-5 w-5"></i>
+          </span>
+          Veterinaria La Falda
+        </a>
+
+        <!-- Nav desktop -->
+        <nav class="hidden md:flex items-center gap-8" aria-label="Navegación principal">
+          <a href="index.html#inicio" class="text-sm font-medium text-secondary-700 hover:text-primary-600 transition-colors">Inicio</a>
+
+          <div class="relative">
+            <button
+              id="services-dropdown-btn"
+              type="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              class="flex items-center gap-1 text-sm font-medium text-secondary-700 hover:text-primary-600 transition-colors"
+            >
+              Servicios
+              <i data-lucide="chevron-down" class="h-4 w-4"></i>
+            </button>
+
+            <div
+              id="services-dropdown"
+              class="services-dropdown absolute left-1/2 -translate-x-1/2 mt-3 w-72 rounded-xl border border-primary-100 bg-white p-2 shadow-xl"
+            >
+              <a href="index.html#servicios" class="flex items-center gap-3 rounded-lg p-3 hover:bg-primary-50 transition-colors">
+                <i data-lucide="stethoscope" class="h-5 w-5 text-primary-600"></i>
+                <span class="text-sm font-medium">Atención Médica</span>
+              </a>
+              <a href="index.html#servicios" class="flex items-center gap-3 rounded-lg p-3 hover:bg-primary-50 transition-colors">
+                <i data-lucide="microscope" class="h-5 w-5 text-primary-600"></i>
+                <span class="text-sm font-medium">Especialidades</span>
+              </a>
+              <a href="index.html#servicios" class="flex items-center gap-3 rounded-lg p-3 hover:bg-primary-50 transition-colors">
+                <i data-lucide="scissors" class="h-5 w-5 text-primary-600"></i>
+                <span class="text-sm font-medium">Peluquería</span>
+              </a>
+              <a href="index.html#servicios" class="flex items-center gap-3 rounded-lg p-3 hover:bg-primary-50 transition-colors">
+                <i data-lucide="flask-conical" class="h-5 w-5 text-primary-600"></i>
+                <span class="text-sm font-medium">Estudios Clínicos</span>
+              </a>
+            </div>
+          </div>
+
+          <a href="index.html#quienes-somos" class="text-sm font-medium text-secondary-700 hover:text-primary-600 transition-colors">Quiénes Somos</a>
+          <a href="index.html#sucursal" class="text-sm font-medium text-secondary-700 hover:text-primary-600 transition-colors">Sucursal</a>
+          <a href="productos.html" class="text-sm font-semibold text-primary-600" aria-current="page">Productos</a>
+        </nav>
+
+        <!-- CTA + hamburguesa -->
+        <div class="flex items-center gap-3">
+          <!-- REEMPLAZAR: número real de WhatsApp -->
+          <a
+            href="https://wa.me/5493548000000?text=Hola%2C%20quiero%20coordinar%20un%20turno"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hidden md:inline-flex items-center gap-2 rounded-full bg-primary-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-primary-600 hover:shadow-md"
+          >
+            <i data-lucide="message-circle" class="h-4 w-4"></i>
+            Coordinar Turno
+          </a>
+
+          <button
+            id="mobile-menu-btn"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Abrir menú"
+            class="md:hidden flex h-10 w-10 items-center justify-center rounded-lg text-secondary-700 hover:bg-primary-50"
+          >
+            <i data-lucide="menu" class="h-6 w-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menú mobile -->
+    <div
+      id="mobile-menu"
+      class="mobile-menu fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white shadow-2xl md:hidden"
+      aria-hidden="true"
+    >
+      <div class="flex items-center justify-between px-5 h-16 border-b border-primary-100">
+        <span class="font-heading font-bold text-secondary-700">Menú</span>
+        <button id="mobile-menu-close" type="button" aria-label="Cerrar menú" class="flex h-10 w-10 items-center justify-center rounded-lg hover:bg-primary-50">
+          <i data-lucide="x" class="h-6 w-6"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col p-5 gap-1" aria-label="Navegación mobile">
+        <a href="index.html#inicio" class="rounded-lg px-4 py-3 text-base font-medium text-secondary-700 hover:bg-primary-50">Inicio</a>
+        <a href="index.html#servicios" class="rounded-lg px-4 py-3 text-base font-medium text-secondary-700 hover:bg-primary-50">Servicios</a>
+        <a href="index.html#quienes-somos" class="rounded-lg px-4 py-3 text-base font-medium text-secondary-700 hover:bg-primary-50">Quiénes Somos</a>
+        <a href="index.html#sucursal" class="rounded-lg px-4 py-3 text-base font-medium text-secondary-700 hover:bg-primary-50">Sucursal</a>
+        <a href="productos.html" class="rounded-lg px-4 py-3 text-base font-semibold text-primary-600 bg-primary-50">Productos</a>
+        <a
+          href="https://wa.me/5493548000000?text=Hola%2C%20quiero%20coordinar%20un%20turno"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-5 py-3 text-base font-semibold text-white"
+        >
+          <i data-lucide="message-circle" class="h-5 w-5"></i>
+          Coordinar Turno por WhatsApp
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== ENCABEZADO DE PÁGINA ===================== -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-primary-50 to-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-10 md:pt-12 md:pb-14">
+        <p class="text-sm font-semibold text-primary-600">
+          <a href="index.html" class="hover:underline">Inicio</a> / Productos
+        </p>
+        <h1 class="mt-3 font-heading text-4xl sm:text-5xl font-extrabold leading-tight text-secondary-800">
+          Catálogo de Productos
+        </h1>
+        <p class="mt-4 text-lg text-secondary-600 max-w-2xl">
+          Alimento, salud, higiene y accesorios para tu mascota. Filtrá por categoría y consultá disponibilidad y precio por WhatsApp.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== CATÁLOGO ===================== -->
+    <section id="catalogo" class="bg-primary-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+        <div class="flex flex-wrap gap-2" data-catalog-filters>
+          <button type="button" data-filter="todos" class="catalog-filter-btn is-active rounded-full px-4 py-2 text-sm font-semibold transition-colors bg-primary-500 text-white">Todos</button>
+          <button type="button" data-filter="alimento" class="catalog-filter-btn rounded-full px-4 py-2 text-sm font-semibold transition-colors bg-white text-secondary-600 ring-1 ring-primary-200 hover:bg-primary-100">Alimentos</button>
+          <button type="button" data-filter="salud" class="catalog-filter-btn rounded-full px-4 py-2 text-sm font-semibold transition-colors bg-white text-secondary-600 ring-1 ring-primary-200 hover:bg-primary-100">Salud y antiparasitarios</button>
+          <button type="button" data-filter="higiene" class="catalog-filter-btn rounded-full px-4 py-2 text-sm font-semibold transition-colors bg-white text-secondary-600 ring-1 ring-primary-200 hover:bg-primary-100">Higiene y peluquería</button>
+          <button type="button" data-filter="accesorios" class="catalog-filter-btn rounded-full px-4 py-2 text-sm font-semibold transition-colors bg-white text-secondary-600 ring-1 ring-primary-200 hover:bg-primary-100">Accesorios</button>
+        </div>
+
+        <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6" data-catalog-grid>
+          <div class="rounded-2xl bg-white p-5 shadow-sm" data-category="alimento">
+            <div class="aspect-square rounded-xl overflow-hidden bg-primary-100">
+              <img src="https://images.pexels.com/photos/8434635/pexels-photo-8434635.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Alimento balanceado premium en un bowl" loading="lazy" class="h-full w-full object-cover" />
+            </div>
+            <h4 class="mt-4 font-semibold text-secondary-800">Alimento balanceado premium</h4>
+            <p class="text-sm text-secondary-500">REEMPLAZAR: nombre y precio del producto</p>
+            <a href="https://wa.me/5493548000000?text=Hola%2C%20quiero%20consultar%20por%20un%20producto" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700">
+              <i data-lucide="message-circle" class="h-4 w-4"></i> Pedir por WhatsApp
+            </a>
+          </div>
+          <div class="rounded-2xl bg-white p-5 shadow-sm" data-category="alimento">
+            <div class="aspect-square rounded-xl overflow-hidden bg-primary-100">
+              <img src="https://images.pexels.com/photos/34952073/pexels-photo-34952073.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Alimento balanceado para cachorros, croquetas" loading="lazy" class="h-full w-full object-cover" />
+            </div>
+            <h4 class="mt-4 font-semibold text-secondary-800">Alimento para cachorros</h4>
+            <p class="text-sm text-secondary-500">REEMPLAZAR: nombre y precio del producto</p>
+            <a href="https://wa.me/5493548000000?text=Hola%2C%20quiero%20consultar%20por%20un%20producto" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700">
+              <i data-lucide="message-circle" class="h-4 w-4"></i> Pedir por WhatsApp
+            </a>
+          </div>
+          <div class="rounded-2xl bg-white p-5 shadow-sm" data-category="alimento">
+            <div class="aspect-square rounded-xl overflow-hidden bg-primary-100">
+              <img src="https://images.pexels.com/photos/5822458/pexels-photo-5822458.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Gato comiendo alimento balanceado de un bowl" loading="lazy" class="h-full w-full object-cover" />
+            </div>
+            <h4 class="mt-4 font-semibold text-secondary-800">Alimento para gatos</h4>
+            <p class="text-sm text-secondary-500">REEMPLAZAR: nombre y precio del producto</p>
+            <a href="https://wa.me/5493548000000?text=Hola%2C%20quiero%20consultar%20por%20un%20producto" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700">
+              <i data-lucide="message-circle" class="h-4 w-4"></i> Pedir por WhatsApp
+            </a>
+          </div>
+          <div class="rounded-2xl bg-white p-5 shadow-sm" data-category="salud">
+            <div class="aspect-square rounded-xl overflow-hidden bg-primary-100">
+              <img src="https://images.pexels.com/photos/13534603/pexels-photo-13534603.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Comprimidos antiparasitarios para mascotas" loading="lazy" class="h-full w-full object-cover" />
+            </div>
+            <h4 class="mt-4 font-semibold text-secondary-800">Antiparasitario</h4>
+            <p class="text-sm text-secondary-500">REEMPLAZAR: nombre y precio del producto</p>
+            <a href="https://wa.me/5493548000000?text=Hola%2C%20quiero%20consultar%20por%20un%20producto" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700">
+              <i data-lucide="message-circle" class="h-4 w-4"></i> Pedir por WhatsApp
+            </a>
+          </div>
+          <div class="rounded-2xl bg-white p-5 shadow-sm" data-category="salud">
+            <div class="aspect-square rounded-xl overflow-hidden bg-primary-100">
+              <img src="https://images.pexels.com/photos/30385883/pexels-photo-30385883.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Vitaminas y suplementos en comprimidos" loading="lazy" class="h-full w-full object-cover" />
+            </div>
+            <h4 class="mt-4 font-semibold text-secondary-800">Vitaminas y suplementos</h4>
+            <p class="text-sm text-secondary-500">REEMPLAZAR: nombre y precio del producto</p>
+            <a href="https://wa.me/5493548000000?text=Hola%2C%20quiero%20consultar%20por%20un%20producto" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700">
+              <i data-lucide="message-circle" class="h-4 w-4"></i> Pedir por WhatsApp
+            </a>
+          </div>
+          <div class="rounded-2xl bg-white p-5 shadow-sm" data-category="higiene">
+            <div class="aspect-square rounded-xl overflow-hidden bg-primary-100">
+              <img src="https://images.pexels.com/photos/19021958/pexels-photo-19021958.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Perro en la bañera junto a un shampoo para mascotas" loading="lazy" class="h-full w-full object-cover" />
+            </div>
+            <h4 class="mt-4 font-semibold text-secondary-800">Shampoo y acondicionador</h4>
+            <p class="text-sm text-secondary-500">REEMPLAZAR: nombre y precio del producto</p>
+            <a href="https://wa.me/5493548000000?text=Hola%2C%20quiero%20consultar%20por%20un%20producto" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700">
+              <i data-lucide="message-circle" class="h-4 w-4"></i> Pedir por WhatsApp
+            </a>
+          </div>
+          <div class="rounded-2xl bg-white p-5 shadow-sm" data-category="higiene">
+            <div class="aspect-square rounded-xl overflow-hidden bg-primary-100">
+              <img src="https://images.pexels.com/photos/23542061/pexels-photo-23542061.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Perro sobre una mesa de grooming junto a un cepillo" loading="lazy" class="h-full w-full object-cover" />
+            </div>
+            <h4 class="mt-4 font-semibold text-secondary-800">Cepillos y cortaúñas</h4>
+            <p class="text-sm text-secondary-500">REEMPLAZAR: nombre y precio del producto</p>
+            <a href="https://wa.me/5493548000000?text=Hola%2C%20quiero%20consultar%20por%20un%20producto" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700">
+              <i data-lucide="message-circle" class="h-4 w-4"></i> Pedir por WhatsApp
+            </a>
+          </div>
+          <div class="rounded-2xl bg-white p-5 shadow-sm" data-category="accesorios">
+            <div class="aspect-square rounded-xl overflow-hidden bg-primary-100">
+              <img src="https://images.pexels.com/photos/14920227/pexels-photo-14920227.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Perro con collar y correa roja" loading="lazy" class="h-full w-full object-cover" />
+            </div>
+            <h4 class="mt-4 font-semibold text-secondary-800">Correas y collares</h4>
+            <p class="text-sm text-secondary-500">REEMPLAZAR: nombre y precio del producto</p>
+            <a href="https://wa.me/5493548000000?text=Hola%2C%20quiero%20consultar%20por%20un%20producto" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700">
+              <i data-lucide="message-circle" class="h-4 w-4"></i> Pedir por WhatsApp
+            </a>
+          </div>
+          <div class="rounded-2xl bg-white p-5 shadow-sm" data-category="accesorios">
+            <div class="aspect-square rounded-xl overflow-hidden bg-primary-100">
+              <img src="https://images.pexels.com/photos/14084426/pexels-photo-14084426.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Perros jugando con un juguete de peluche" loading="lazy" class="h-full w-full object-cover" />
+            </div>
+            <h4 class="mt-4 font-semibold text-secondary-800">Juguetes y camas</h4>
+            <p class="text-sm text-secondary-500">REEMPLAZAR: nombre y precio del producto</p>
+            <a href="https://wa.me/5493548000000?text=Hola%2C%20quiero%20consultar%20por%20un%20producto" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700">
+              <i data-lucide="message-circle" class="h-4 w-4"></i> Pedir por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="bg-secondary-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <a href="index.html" class="flex items-center gap-2 font-heading font-bold text-lg text-white">
+          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-primary-500 text-white">
+            <i data-lucide="paw-print" class="h-5 w-5"></i>
+          </span>
+          Veterinaria La Falda
+        </a>
+        <p class="mt-4 text-sm text-white">
+          Cuidado integral, cálido y profesional para tu mascota en La Falda, Córdoba.
+        </p>
+        <div class="mt-5 flex gap-3">
+          <!-- REEMPLAZAR: enlaces reales a redes sociales -->
+          <a href="#" aria-label="Instagram" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 hover:bg-white/10">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 hover:bg-white/10">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+          <a href="https://wa.me/5493548000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 hover:bg-white/10">
+            <i data-lucide="message-circle" class="h-5 w-5"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-heading font-semibold text-white">Accesos directos</h3>
+        <ul class="mt-4 space-y-2 text-sm text-white">
+          <li><a href="index.html#inicio" class="hover:opacity-80">Inicio</a></li>
+          <li><a href="index.html#servicios" class="hover:opacity-80">Servicios</a></li>
+          <li><a href="index.html#quienes-somos" class="hover:opacity-80">Quiénes somos</a></li>
+          <li><a href="index.html#sucursal" class="hover:opacity-80">Sucursal</a></li>
+          <li><a href="productos.html" class="hover:opacity-80">Productos</a></li>
+          <li><a href="index.html#faq" class="hover:opacity-80">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-heading font-semibold text-white">Horarios</h3>
+        <ul class="mt-4 space-y-2 text-sm text-white">
+          <!-- REEMPLAZAR: horarios reales -->
+          <li>Lunes a viernes: 9:00 – 20:00</li>
+          <li>Sábados: 9:00 – 13:00</li>
+          <li>Domingos: cerrado</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-heading font-semibold text-white">Novedades y promociones</h3>
+        <p class="mt-4 text-sm text-white">Sumate para recibir novedades y promociones exclusivas.</p>
+        <form id="newsletter-form" class="mt-4 flex gap-2">
+          <label for="newsletter-email" class="sr-only">Correo electrónico</label>
+          <input
+            id="newsletter-email"
+            type="email"
+            required
+            placeholder="tu@email.com"
+            class="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-2.5 text-sm text-white placeholder:text-secondary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+          />
+          <button type="submit" class="shrink-0 rounded-lg bg-primary-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-600">
+            <i data-lucide="send" class="h-4 w-4"></i>
+          </button>
+        </form>
+        <p id="newsletter-msg" class="mt-2 text-xs text-primary-300 hidden">¡Gracias por sumarte! Te enviaremos novedades pronto.</p>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white">
+        <p>© <span id="current-year">2026</span> Veterinaria La Falda. Todos los derechos reservados.</p>
+        <div class="flex gap-4">
+          <a href="#" class="hover:opacity-80">Términos y condiciones</a>
+          <a href="#" class="hover:opacity-80">Política de privacidad</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== BOTÓN FLOTANTE WHATSAPP ===================== -->
+  <!-- REEMPLAZAR: número real de WhatsApp -->
+  <a
+    href="https://wa.me/5493548000000?text=Hola%2C%20necesito%20coordinar%20un%20turno"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Coordinar turno por WhatsApp"
+    class="wa-fab animate-pulse-soft fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary-500 text-white shadow-xl transition-transform hover:scale-105"
+  >
+    <i data-lucide="message-circle" class="h-7 w-7"></i>
+    <span class="wa-tooltip absolute right-16 whitespace-nowrap rounded-lg bg-secondary-800 px-3 py-2 text-sm font-medium text-white shadow-lg">
+      ¿Necesitás un turno?
+    </span>
+  </a>
+
+  <!-- Lucide Icons (iconografía lineal, sin emojis) -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

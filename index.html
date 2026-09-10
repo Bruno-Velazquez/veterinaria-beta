@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veterinaria La Falda</title>
+  <meta name="description" content="Veterinaria La Falda: clínica veterinaria, especialidades médicas, peluquería, bañadero y pet shop en La Falda, Córdoba. 4.9 estrellas en Google con más de 80 reseñas." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Veterinaria La Falda" />
+  <meta property="og:description" content="Atención médica de excelencia y amor para tu mascota. Clínica, especialidades, peluquería y pet shop en La Falda, Córdoba." />
+  <meta property="og:type" content="website" />
+  <!-- REEMPLAZAR: URL final del sitio y URL de imagen de portada -->
+  <meta property="og:url" content="https://www.veterinarialafalda.com.ar/" />
+  <meta property="og:image" content="/assets/og-cover.jpg" />
+
+  <!-- Rendimiento: preconnect a los orígenes externos usados -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+  <link rel="preconnect" href="https://unpkg.com" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS vía CDN + configuración de marca -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: "#f0f9ff",
+              100: "#e0f2fe",
+              200: "#bae6fd",
+              300: "#7dd3fc",
+              400: "#38bdf8",
+              500: "#0ea5e9",
+              600: "#0284c7",
+              700: "#0369a1",
+            },
+            secondary: {
+              600: "#123c69",
+              700: "#0b2545",
+              800: "#081a33",
+              900: "#051021",
+            },
+          },
+          fontFamily: {
+            heading: ["Poppins", "system-ui", "sans-serif"],
+            body: ["Inter", "system-ui", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Datos estructurados para SEO local -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VeterinaryCare",
+    "name": "Veterinaria La Falda",
+    "image": "/assets/og-cover.jpg",
+    "telephone": "+54-3548-000000",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "REEMPLAZAR: dirección completa",
+      "addressLocality": "La Falda",
+      "addressRegion": "Córdoba",
+      "addressCountry": "AR"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "80"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "20:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday"],
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="font-body text-secondary-800 bg-white antialiased">
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-primary-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+
+        <!-- Logo -->
+        <a href="#inicio" class="flex items-center gap-2 font-heading font-bold text-lg md:text-xl text-secondary-700">
+          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-primary-500 text-white">
+            <i data-lucide="paw-print" class="h-5 w-5"></i>
+          </span>
+          Veterinaria La Falda
+        </a>
+
+        <!-- Nav desktop -->
+        <nav class="hidden md:flex items-center gap-8" aria-label="Navegación principal">
+          <a href="#inicio" class="text-sm font-medium text-secondary-700 hover:text-primary-600 transition-colors">Inicio</a>
+
+          <div class="relative">
+            <button
+              id="services-dropdown-btn"
+              type="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              class="flex items-center gap-1 text-sm font-medium text-secondary-700 hover:text-primary-600 transition-colors"
+            >
+              Servicios
+              <i data-lucide="chevron-down" class="h-4 w-4"></i>
+            </button>
+
+            <div
+              id="services-dropdown"
+              class="services-dropdown absolute left-1/2 -translate-x-1/2 mt-3 w-72 rounded-xl border border-primary-100 bg-white p-2 shadow-xl"
+            >
+              <a href="#servicios" class="flex items-center gap-3 rounded-lg p-3 hover:bg-primary-50 transition-colors">
+                <i data-lucide="stethoscope" class="h-5 w-5 text-primary-600"></i>
+                <span class="text-sm font-medium">Atención Médica</span>
+              </a>
+              <a href="#servicios" class="flex items-center gap-3 rounded-lg p-3 hover:bg-primary-50 transition-colors">
+                <i data-lucide="microscope" class="h-5 w-5 text-primary-600"></i>
+                <span class="text-sm font-medium">Especialidades</span>
+              </a>
+              <a href="#servicios" class="flex items-center gap-3 rounded-lg p-3 hover:bg-primary-50 transition-colors">
+                <i data-lucide="scissors" class="h-5 w-5 text-primary-600"></i>
+                <span class="text-sm font-medium">Peluquería</span>
+              </a>
+              <a href="#servicios" class="flex items-center gap-3 rounded-lg p-3 hover:bg-primary-50 transition-colors">
+                <i data-lucide="flask-conical" class="h-5 w-5 text-primary-600"></i>
+                <span class="text-sm font-medium">Estudios Clínicos</span>
+              </a>
+            </div>
+          </div>
+
+          <a href="#quienes-somos" class="text-sm font-medium text-secondary-700 hover:text-primary-600 transition-colors">Quiénes Somos</a>
+          <a href="#sucursal" class="text-sm font-medium text-secondary-700 hover:text-primary-600 transition-colors">Sucursal</a>
+          <a href="productos.html" class="text-sm font-medium text-secondary-700 hover:text-primary-600 transition-colors">Productos</a>
+        </nav>
+
+        <!-- CTA + hamburguesa -->
+        <div class="flex items-center gap-3">
+          <!-- REEMPLAZAR: número real de WhatsApp -->
+          <a
+            href="https://wa.me/5493548000000?text=Hola%2C%20quiero%20coordinar%20un%20turno"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hidden md:inline-flex items-center gap-2 rounded-full bg-primary-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-primary-600 hover:shadow-md"
+          >
+            <i data-lucide="message-circle" class="h-4 w-4"></i>
+            Coordinar Turno
+          </a>
+
+          <button
+            id="mobile-menu-btn"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Abrir menú"
+            class="md:hidden flex h-10 w-10 items-center justify-center rounded-lg text-secondary-700 hover:bg-primary-50"
+          >
+            <i data-lucide="menu" class="h-6 w-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menú mobile -->
+    <div
+      id="mobile-menu"
+      class="mobile-menu fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white shadow-2xl md:hidden"
+      aria-hidden="true"
+    >
+      <div class="flex items-center justify-between px-5 h-16 border-b border-primary-100">
+        <span class="font-heading font-bold text-secondary-700">Menú</span>
+        <button id="mobile-menu-close" type="button" aria-label="Cerrar menú" class="flex h-10 w-10 items-center justify-center rounded-lg hover:bg-primary-50">
+          <i data-lucide="x" class="h-6 w-6"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col p-5 gap-1" aria-label="Navegación mobile">
+        <a href="#inicio" class="rounded-lg px-4 py-3 text-base font-medium text-secondary-700 hover:bg-primary-50">Inicio</a>
+        <a href="#servicios" class="rounded-lg px-4 py-3 text-base font-medium text-secondary-700 hover:bg-primary-50">Servicios</a>
+        <a href="#quienes-somos" class="rounded-lg px-4 py-3 text-base font-medium text-secondary-700 hover:bg-primary-50">Quiénes Somos</a>
+        <a href="#sucursal" class="rounded-lg px-4 py-3 text-base font-medium text-secondary-700 hover:bg-primary-50">Sucursal</a>
+        <a href="productos.html" class="rounded-lg px-4 py-3 text-base font-medium text-secondary-700 hover:bg-primary-50">Productos</a>
+        <a
+          href="https://wa.me/5493548000000?text=Hola%2C%20quiero%20coordinar%20un%20turno"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-5 py-3 text-base font-semibold text-white"
+        >
+          <i data-lucide="message-circle" class="h-5 w-5"></i>
+          Coordinar Turno por WhatsApp
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <!-- Nota: sin overflow-hidden a propósito, para que la imagen del perro y el gato pueda sobresalir hacia la sección de abajo -->
+    <section id="inicio" class="relative bg-gradient-to-b from-primary-50 to-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-5 pt-0 pb-16 md:-mt-6 md:pt-0 md:pb-0 grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-secondary-700 shadow-sm ring-1 ring-primary-100">
+            <span class="flex text-amber-400" aria-hidden="true">
+              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+            </span>
+            4.9 en Google (+80 reseñas)
+          </span>
+
+          <h1 class="mt-6 font-heading text-4xl sm:text-5xl font-extrabold leading-tight text-secondary-800">
+            Atención médica para tu mascota.
+          </h1>
+
+          <p class="mt-5 text-lg text-secondary-600 max-w-xl">
+            Clínica veterinaria, especialidades y pet shop. Cuidamos a quienes más querés.
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <!-- REEMPLAZAR: número real de WhatsApp -->
+            <a
+              href="https://wa.me/5493548000000?text=Hola%2C%20quiero%20coordinar%20un%20turno"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-6 py-3.5 text-base font-semibold text-white shadow-md transition-transform hover:scale-[1.03] hover:bg-primary-600"
+            >
+              <i data-lucide="message-circle" class="h-5 w-5"></i>
+              Coordinar Turno por WhatsApp
+            </a>
+            <a
+              href="#sucursal"
+              class="inline-flex items-center justify-center gap-2 rounded-full border border-secondary-200 bg-white px-6 py-3.5 text-base font-semibold text-secondary-700 transition-transform hover:scale-[1.03] hover:border-primary-300"
+            >
+              <i data-lucide="map-pin" class="h-5 w-5"></i>
+              Ver ubicación
+            </a>
+          </div>
+        </div>
+
+        <!-- Imagen hero: perro y gato; se desplaza un poco más abajo para que las patitas del gato "floten" sobre la sección de abajo -->
+        <div class="relative z-10 md:self-end">
+          <img
+            src="assets/dogandgat.png"
+            alt="Perro golden retriever y gato asomándose juntos, con las patitas apoyadas, pacientes felices de Veterinaria La Falda"
+            width="569"
+            height="600"
+            fetchpriority="high"
+            class="relative mx-auto block w-full max-w-sm md:max-w-md lg:max-w-lg md:translate-y-[74px] lg:translate-y-[90px] drop-shadow-2xl"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SUCURSAL ===================== -->
+    <section id="sucursal" class="bg-secondary-700 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+        <div class="max-w-2xl">
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold">Nuestra Sucursal</h2>
+          <p class="mt-3 text-secondary-100">
+            Encontranos en La Falda, Córdoba. Elegí la sucursal más cercana para ver horarios y contactarnos directamente.
+          </p>
+        </div>
+
+        <!--
+          Selector de sucursales: hoy hay una sola (La Falda).
+          Para agregar más sucursales a futuro, duplicar el <article data-branch> y
+          conectar la lógica de filtrado/selección en js/main.js.
+        -->
+        <div class="mt-10 grid md:grid-cols-2 gap-8 items-stretch">
+          <article data-branch="la-falda" class="rounded-2xl bg-white text-secondary-800 p-6 md:p-8 shadow-xl">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-heading text-xl font-bold">Veterinaria La Falda</h3>
+                <p class="text-sm text-secondary-500">La Falda, Córdoba, Argentina</p>
+              </div>
+              <span id="branch-status" class="shrink-0 rounded-full bg-slate-200 px-3 py-1 text-xs font-semibold text-slate-600">
+                Verificando horario…
+              </span>
+            </div>
+
+            <dl class="mt-6 space-y-4 text-sm">
+              <div class="flex items-start gap-3">
+                <i data-lucide="map-pin" class="h-5 w-5 text-primary-600 shrink-0"></i>
+                <div>
+                  <dt class="font-semibold">Dirección</dt>
+                  <!-- REEMPLAZAR: dirección completa en texto -->
+                  <dd class="text-secondary-600">REEMPLAZAR: calle y número, La Falda, Córdoba</dd>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i data-lucide="clock" class="h-5 w-5 text-primary-600 shrink-0"></i>
+                <div>
+                  <dt class="font-semibold">Horario de hoy</dt>
+                  <!-- REEMPLAZAR: horario real -->
+                  <dd class="text-secondary-600">Lunes a viernes 9:00–20:00 · Sábados 9:00–13:00</dd>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i data-lucide="phone" class="h-5 w-5 text-primary-600 shrink-0"></i>
+                <div>
+                  <dt class="font-semibold">Teléfono</dt>
+                  <!-- REEMPLAZAR: teléfono real -->
+                  <dd class="text-secondary-600">[TU-TELEFONO]</dd>
+                </div>
+              </div>
+            </dl>
+
+            <div class="mt-7 flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://share.google/zpCEaZ7UfkKtW2g9u"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-600"
+              >
+                <i data-lucide="navigation" class="h-4 w-4"></i>
+                Cómo llegar
+              </a>
+              <!-- REEMPLAZAR: número real de WhatsApp de esta sucursal -->
+              <a
+                href="https://wa.me/5493548000000?text=Hola%2C%20quiero%20consultar%20sobre%20la%20sucursal%20La%20Falda"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 rounded-full border border-secondary-200 px-5 py-3 text-sm font-semibold text-secondary-700 transition-colors hover:border-primary-300"
+              >
+                <i data-lucide="message-circle" class="h-4 w-4"></i>
+                Hablar con esta sucursal
+              </a>
+            </div>
+          </article>
+
+          <!-- Mapa embebido -->
+          <div class="rounded-2xl overflow-hidden ring-1 ring-white/10 min-h-[320px]">
+            <iframe
+              title="Ubicación de Veterinaria La Falda en Google Maps"
+              src="https://maps.google.com/maps?q=La%20Falda%2C%20C%C3%B3rdoba%2C%20Argentina&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              class="h-full w-full min-h-[320px] border-0"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SERVICIOS ===================== -->
+    <section id="servicios" class="bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div class="max-w-2xl mx-auto text-center">
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold text-secondary-800">Cuidado integral para tu mascota</h2>
+          <p class="mt-3 text-secondary-600">Todo lo que tu compañero necesita, en un solo lugar.</p>
+        </div>
+
+        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <article class="group rounded-2xl border border-primary-100 p-6 transition-all hover:-translate-y-1 hover:shadow-xl hover:border-primary-300">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-primary-600 transition-colors group-hover:bg-primary-500 group-hover:text-white">
+              <i data-lucide="stethoscope" class="h-6 w-6"></i>
+            </div>
+            <h3 class="mt-5 font-heading text-lg font-bold text-secondary-800">Clínica y Urgencias</h3>
+            <p class="mt-2 text-sm text-secondary-600">Atención general, vacunación y desparasitación, con guardia para urgencias.</p>
+          </article>
+
+          <article class="group rounded-2xl border border-primary-100 p-6 transition-all hover:-translate-y-1 hover:shadow-xl hover:border-primary-300">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-primary-600 transition-colors group-hover:bg-primary-500 group-hover:text-white">
+              <i data-lucide="microscope" class="h-6 w-6"></i>
+            </div>
+            <h3 class="mt-5 font-heading text-lg font-bold text-secondary-800">Especialidades Médicas</h3>
+            <p class="mt-2 text-sm text-secondary-600">Dermatología, traumatología, oftalmología, ecografías y análisis clínicos.</p>
+          </article>
+
+          <article class="group rounded-2xl border border-primary-100 p-6 transition-all hover:-translate-y-1 hover:shadow-xl hover:border-primary-300">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-primary-600 transition-colors group-hover:bg-primary-500 group-hover:text-white">
+              <i data-lucide="scissors" class="h-6 w-6"></i>
+            </div>
+            <h3 class="mt-5 font-heading text-lg font-bold text-secondary-800">Bañadero y Peluquería</h3>
+            <p class="mt-2 text-sm text-secondary-600">Baño, corte y estética canina y felina con productos de calidad.</p>
+          </article>
+
+          <article class="group rounded-2xl border border-primary-100 p-6 transition-all hover:-translate-y-1 hover:shadow-xl hover:border-primary-300">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-primary-600 transition-colors group-hover:bg-primary-500 group-hover:text-white">
+              <i data-lucide="shopping-bag" class="h-6 w-6"></i>
+            </div>
+            <h3 class="mt-5 font-heading text-lg font-bold text-secondary-800">PetShop &amp; Farmacia</h3>
+            <p class="mt-2 text-sm text-secondary-600">Alimento, accesorios y medicamentos de las mejores marcas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MARCAS / TIENDA ===================== -->
+    <section id="tienda">
+      <div class="bg-secondary-700 text-white py-16 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-end justify-between gap-4 flex-wrap">
+            <div>
+              <h2 class="font-heading text-3xl sm:text-4xl font-bold">Marcas en las que confiamos</h2>
+              <p class="mt-2 text-secondary-100">Las mejores marcas del mercado, disponibles en nuestro pet shop.</p>
+            </div>
+          </div>
+
+          <!-- Marquee: se desplaza solo en loop infinito; el set de logos se duplica para que el ciclo sea continuo -->
+          <div class="marquee mt-8">
+            <div class="marquee-track flex gap-4">
+              <!-- REEMPLAZAR: logos reales de marcas -->
+              <div class="shrink-0 flex h-24 w-44 items-center justify-center rounded-xl bg-white text-sm font-semibold text-secondary-700 shadow-sm">Royal Canin</div>
+              <div class="shrink-0 flex h-24 w-44 items-center justify-center rounded-xl bg-white text-sm font-semibold text-secondary-700 shadow-sm">Pro Plan</div>
+              <div class="shrink-0 flex h-24 w-44 items-center justify-center rounded-xl bg-white text-sm font-semibold text-secondary-700 shadow-sm">Eukanuba</div>
+              <div class="shrink-0 flex h-24 w-44 items-center justify-center rounded-xl bg-white text-sm font-semibold text-secondary-700 shadow-sm">Mon Ami</div>
+              <div class="shrink-0 flex h-24 w-44 items-center justify-center rounded-xl bg-white text-sm font-semibold text-secondary-700 shadow-sm">Nexgard</div>
+              <div class="shrink-0 flex h-24 w-44 items-center justify-center rounded-xl bg-white text-sm font-semibold text-secondary-700 shadow-sm">Trixie</div>
+              <div class="shrink-0 flex h-24 w-44 items-center justify-center rounded-xl bg-white text-sm font-semibold text-secondary-700 shadow-sm" aria-hidden="true">Royal Canin</div>
+              <div class="shrink-0 flex h-24 w-44 items-center justify-center rounded-xl bg-white text-sm font-semibold text-secondary-700 shadow-sm" aria-hidden="true">Pro Plan</div>
+              <div class="shrink-0 flex h-24 w-44 items-center justify-center rounded-xl bg-white text-sm font-semibold text-secondary-700 shadow-sm" aria-hidden="true">Eukanuba</div>
+              <div class="shrink-0 flex h-24 w-44 items-center justify-center rounded-xl bg-white text-sm font-semibold text-secondary-700 shadow-sm" aria-hidden="true">Mon Ami</div>
+              <div class="shrink-0 flex h-24 w-44 items-center justify-center rounded-xl bg-white text-sm font-semibold text-secondary-700 shadow-sm" aria-hidden="true">Nexgard</div>
+              <div class="shrink-0 flex h-24 w-44 items-center justify-center rounded-xl bg-white text-sm font-semibold text-secondary-700 shadow-sm" aria-hidden="true">Trixie</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary-50 py-14 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="rounded-2xl bg-white p-8 md:p-10 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div>
+              <h3 class="font-heading text-2xl font-bold text-secondary-800">Catálogo completo de productos</h3>
+              <p class="mt-2 text-secondary-600">Alimento, salud, higiene y accesorios. Filtrá por categoría y consultá precio y disponibilidad por WhatsApp.</p>
+            </div>
+            <a
+              href="productos.html"
+              class="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-6 py-3.5 text-base font-semibold text-white shadow-md transition-transform hover:scale-[1.03] hover:bg-primary-600"
+            >
+              <i data-lucide="shopping-bag" class="h-5 w-5"></i>
+              Ver catálogo de productos
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GALERÍA + TESTIMONIOS ===================== -->
+    <section id="pacientes" class="bg-secondary-800 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div class="max-w-2xl">
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold">Pacientes felices</h2>
+          <p class="mt-3 text-secondary-200">Momentos reales de nuestra comunidad de mascotas y familias.</p>
+        </div>
+
+        <!-- Grid estilo Instagram: fotos ilustrativas de mascotas con sus dueños (banco de imágenes libres, REEMPLAZAR por fotos reales de pacientes cuando estén disponibles) -->
+        <div class="mt-10 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3">
+          <div class="aspect-square rounded-lg overflow-hidden bg-secondary-600">
+            <img src="https://images.pexels.com/photos/10117517/pexels-photo-10117517.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Dueña abrazando a su perro en casa" loading="lazy" class="h-full w-full object-cover" />
+          </div>
+          <div class="aspect-square rounded-lg overflow-hidden bg-secondary-600">
+            <img src="https://images.pexels.com/photos/37348535/pexels-photo-37348535.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Dueño abrazando a su perro Shiba Inu" loading="lazy" class="h-full w-full object-cover" />
+          </div>
+          <div class="aspect-square rounded-lg overflow-hidden bg-secondary-600">
+            <img src="https://images.pexels.com/photos/38685296/pexels-photo-38685296.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Mujer sonriendo con su perro en una plaza" loading="lazy" class="h-full w-full object-cover" />
+          </div>
+          <div class="aspect-square rounded-lg overflow-hidden bg-secondary-600">
+            <img src="https://images.pexels.com/photos/15390589/pexels-photo-15390589.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Mujer junto a sus dos perros" loading="lazy" class="h-full w-full object-cover" />
+          </div>
+          <div class="aspect-square rounded-lg overflow-hidden bg-secondary-600">
+            <img src="https://images.pexels.com/photos/6865039/pexels-photo-6865039.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Mujer sosteniendo a su gato" loading="lazy" class="h-full w-full object-cover" />
+          </div>
+          <div class="aspect-square rounded-lg overflow-hidden bg-secondary-600">
+            <img src="https://images.pexels.com/photos/5255212/pexels-photo-5255212.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Dueña acariciando a su perro en casa" loading="lazy" class="h-full w-full object-cover" />
+          </div>
+        </div>
+
+        <!-- Carrusel de testimonios -->
+        <div class="mt-16">
+          <div class="flex items-end justify-between gap-4 flex-wrap">
+            <h3 class="font-heading text-2xl font-bold">Lo que dicen en Google</h3>
+            <div class="hidden sm:flex gap-2" data-carousel-controls>
+              <button type="button" data-carousel-prev aria-label="Testimonio anterior" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20">
+                <i data-lucide="chevron-left" class="h-5 w-5"></i>
+              </button>
+              <button type="button" data-carousel-next aria-label="Testimonio siguiente" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20">
+                <i data-lucide="chevron-right" class="h-5 w-5"></i>
+              </button>
+            </div>
+          </div>
+
+          <div data-carousel class="mt-6">
+            <div data-carousel-track class="snap-row flex gap-5 overflow-x-auto pb-2">
+              <!-- REEMPLAZAR: reseñas reales extraídas de Google Reviews -->
+              <blockquote class="snap-item shrink-0 w-80 rounded-2xl bg-secondary-700 p-6">
+                <div class="flex text-amber-400" aria-hidden="true">
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                </div>
+                <p class="mt-4 text-sm text-secondary-100">"REEMPLAZAR: texto real de la reseña de Google."</p>
+                <footer class="mt-4 flex items-center gap-3">
+                  <div class="h-9 w-9 rounded-full bg-primary-500 flex items-center justify-center text-xs font-bold">NN</div>
+                  <span class="text-sm font-semibold">Nombre del cliente</span>
+                </footer>
+              </blockquote>
+              <blockquote class="snap-item shrink-0 w-80 rounded-2xl bg-secondary-700 p-6">
+                <div class="flex text-amber-400" aria-hidden="true">
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                </div>
+                <p class="mt-4 text-sm text-secondary-100">"REEMPLAZAR: texto real de la reseña de Google."</p>
+                <footer class="mt-4 flex items-center gap-3">
+                  <div class="h-9 w-9 rounded-full bg-primary-500 flex items-center justify-center text-xs font-bold">NN</div>
+                  <span class="text-sm font-semibold">Nombre del cliente</span>
+                </footer>
+              </blockquote>
+              <blockquote class="snap-item shrink-0 w-80 rounded-2xl bg-secondary-700 p-6">
+                <div class="flex text-amber-400" aria-hidden="true">
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                </div>
+                <p class="mt-4 text-sm text-secondary-100">"REEMPLAZAR: texto real de la reseña de Google."</p>
+                <footer class="mt-4 flex items-center gap-3">
+                  <div class="h-9 w-9 rounded-full bg-primary-500 flex items-center justify-center text-xs font-bold">NN</div>
+                  <span class="text-sm font-semibold">Nombre del cliente</span>
+                </footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== QUIÉNES SOMOS ===================== -->
+    <section id="quienes-somos" class="bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+        <div class="aspect-[4/3] rounded-3xl bg-gradient-to-br from-primary-100 to-primary-200 flex flex-col items-center justify-center gap-3 ring-1 ring-primary-200 order-2 md:order-1">
+          <i data-lucide="heart-handshake" class="h-12 w-12 text-primary-500"></i>
+          <p class="text-sm font-medium text-primary-700 text-center px-6">
+            REEMPLAZAR: foto del equipo veterinario
+          </p>
+        </div>
+        <div class="order-1 md:order-2">
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold text-secondary-800">Quiénes somos</h2>
+          <p class="mt-4 text-secondary-600">
+            En Veterinaria La Falda combinamos experiencia médica con un trato cálido y cercano.
+            Somos un equipo de profesionales dedicados a la salud y el bienestar de tu mascota,
+            con clínica, especialidades, peluquería y pet shop bajo un mismo techo.
+          </p>
+          <p class="mt-4 text-secondary-600">
+            Nuestro compromiso es brindar una atención integral, accesible y confiable en cada visita,
+            para que tu compañero reciba el mejor cuidado en cada etapa de su vida.
+          </p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="flex text-amber-400" aria-hidden="true">
+              <i data-lucide="star" class="h-5 w-5 fill-current"></i>
+              <i data-lucide="star" class="h-5 w-5 fill-current"></i>
+              <i data-lucide="star" class="h-5 w-5 fill-current"></i>
+              <i data-lucide="star" class="h-5 w-5 fill-current"></i>
+              <i data-lucide="star" class="h-5 w-5 fill-current"></i>
+            </div>
+            <span class="text-sm font-semibold text-secondary-700">4.9 en Google · +80 reseñas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section id="faq" class="bg-primary-50">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold text-secondary-800 text-center">Preguntas frecuentes</h2>
+
+        <div class="mt-10 space-y-4">
+          <div class="faq-item rounded-xl bg-white shadow-sm overflow-hidden" data-open="false">
+            <button type="button" class="faq-trigger flex w-full items-center gap-4 p-5 text-left" aria-expanded="false">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-600">
+                <i data-lucide="circle-help" class="h-5 w-5"></i>
+              </span>
+              <span class="flex-1 font-heading font-semibold text-base text-secondary-800">¿Atienden urgencias?</span>
+              <i data-lucide="chevron-down" class="faq-chevron h-5 w-5 text-primary-600 shrink-0"></i>
+            </button>
+            <div class="faq-panel">
+              <div class="border-t border-primary-100 bg-primary-50/50 px-5 py-4 pl-[4.25rem] text-secondary-600 text-sm">
+                Sí, contamos con atención de urgencias. Ante una emergencia, contactanos por WhatsApp o llamá directamente a la sucursal para coordinar la atención inmediata.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl bg-white shadow-sm overflow-hidden" data-open="false">
+            <button type="button" class="faq-trigger flex w-full items-center gap-4 p-5 text-left" aria-expanded="false">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-600">
+                <i data-lucide="circle-help" class="h-5 w-5"></i>
+              </span>
+              <span class="flex-1 font-heading font-semibold text-base text-secondary-800">¿Realizan cirugías?</span>
+              <i data-lucide="chevron-down" class="faq-chevron h-5 w-5 text-primary-600 shrink-0"></i>
+            </button>
+            <div class="faq-panel">
+              <div class="border-t border-primary-100 bg-primary-50/50 px-5 py-4 pl-[4.25rem] text-secondary-600 text-sm">
+                Sí, realizamos cirugías de rutina y especializadas con los estándares de seguridad y bienestar animal correspondientes. Consultanos por WhatsApp para más información.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl bg-white shadow-sm overflow-hidden" data-open="false">
+            <button type="button" class="faq-trigger flex w-full items-center gap-4 p-5 text-left" aria-expanded="false">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-600">
+                <i data-lucide="circle-help" class="h-5 w-5"></i>
+              </span>
+              <span class="flex-1 font-heading font-semibold text-base text-secondary-800">¿Qué medios de pago aceptan?</span>
+              <i data-lucide="chevron-down" class="faq-chevron h-5 w-5 text-primary-600 shrink-0"></i>
+            </button>
+            <div class="faq-panel">
+              <div class="border-t border-primary-100 bg-primary-50/50 px-5 py-4 pl-[4.25rem] text-secondary-600 text-sm">
+                <!-- REEMPLAZAR: medios de pago reales -->
+                Aceptamos efectivo, tarjetas de débito y crédito, y transferencias bancarias.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl bg-white shadow-sm overflow-hidden" data-open="false">
+            <button type="button" class="faq-trigger flex w-full items-center gap-4 p-5 text-left" aria-expanded="false">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-600">
+                <i data-lucide="circle-help" class="h-5 w-5"></i>
+              </span>
+              <span class="flex-1 font-heading font-semibold text-base text-secondary-800">¿Realizan estudios de diagnóstico, como radiografías o análisis de sangre?</span>
+              <i data-lucide="chevron-down" class="faq-chevron h-5 w-5 text-primary-600 shrink-0"></i>
+            </button>
+            <div class="faq-panel">
+              <div class="border-t border-primary-100 bg-primary-50/50 px-5 py-4 pl-[4.25rem] text-secondary-600 text-sm">
+                Sí, contamos con estudios de diagnóstico como radiografías, ecografías y análisis clínicos de sangre para un diagnóstico preciso y oportuno.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="bg-secondary-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <a href="#inicio" class="flex items-center gap-2 font-heading font-bold text-lg text-white">
+          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-primary-500 text-white">
+            <i data-lucide="paw-print" class="h-5 w-5"></i>
+          </span>
+          Veterinaria La Falda
+        </a>
+        <p class="mt-4 text-sm text-white">
+          Cuidado integral, cálido y profesional para tu mascota en La Falda, Córdoba.
+        </p>
+        <div class="mt-5 flex gap-3">
+          <!-- REEMPLAZAR: enlaces reales a redes sociales -->
+          <a href="#" aria-label="Instagram" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 hover:bg-white/10">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 hover:bg-white/10">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+          <a href="https://wa.me/5493548000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 hover:bg-white/10">
+            <i data-lucide="message-circle" class="h-5 w-5"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-heading font-semibold text-white">Accesos directos</h3>
+        <ul class="mt-4 space-y-2 text-sm text-white">
+          <li><a href="#inicio" class="hover:opacity-80">Inicio</a></li>
+          <li><a href="#servicios" class="hover:opacity-80">Servicios</a></li>
+          <li><a href="#quienes-somos" class="hover:opacity-80">Quiénes somos</a></li>
+          <li><a href="#sucursal" class="hover:opacity-80">Sucursal</a></li>
+          <li><a href="productos.html" class="hover:opacity-80">Productos</a></li>
+          <li><a href="#faq" class="hover:opacity-80">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-heading font-semibold text-white">Horarios</h3>
+        <ul class="mt-4 space-y-2 text-sm text-white">
+          <!-- REEMPLAZAR: horarios reales -->
+          <li>Lunes a viernes: 9:00 – 20:00</li>
+          <li>Sábados: 9:00 – 13:00</li>
+          <li>Domingos: cerrado</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-heading font-semibold text-white">Novedades y promociones</h3>
+        <p class="mt-4 text-sm text-white">Sumate para recibir novedades y promociones exclusivas.</p>
+        <form id="newsletter-form" class="mt-4 flex gap-2">
+          <label for="newsletter-email" class="sr-only">Correo electrónico</label>
+          <input
+            id="newsletter-email"
+            type="email"
+            required
+            placeholder="tu@email.com"
+            class="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-2.5 text-sm text-white placeholder:text-secondary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+          />
+          <button type="submit" class="shrink-0 rounded-lg bg-primary-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-600">
+            <i data-lucide="send" class="h-4 w-4"></i>
+          </button>
+        </form>
+        <p id="newsletter-msg" class="mt-2 text-xs text-primary-300 hidden">¡Gracias por sumarte! Te enviaremos novedades pronto.</p>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white">
+        <p>© <span id="current-year">2026</span> Veterinaria La Falda. Todos los derechos reservados.</p>
+        <div class="flex gap-4">
+          <a href="#" class="hover:opacity-80">Términos y condiciones</a>
+          <a href="#" class="hover:opacity-80">Política de privacidad</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== BOTÓN FLOTANTE WHATSAPP ===================== -->
+  <!-- REEMPLAZAR: número real de WhatsApp -->
+  <a
+    href="https://wa.me/5493548000000?text=Hola%2C%20necesito%20coordinar%20un%20turno"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Coordinar turno por WhatsApp"
+    class="wa-fab animate-pulse-soft fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary-500 text-white shadow-xl transition-transform hover:scale-105"
+  >
+    <i data-lucide="message-circle" class="h-7 w-7"></i>
+    <span class="wa-tooltip absolute right-16 whitespace-nowrap rounded-lg bg-secondary-800 px-3 py-2 text-sm font-medium text-white shadow-lg">
+      ¿Necesitás un turno?
+    </span>
+  </a>
+
+  <!-- Lucide Icons (iconografía lineal, sin emojis) -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

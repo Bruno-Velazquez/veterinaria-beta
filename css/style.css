@@ -1,0 +1,139 @@
+/* Estilos que Tailwind (vía CDN) no cubre: fuentes, animaciones custom y utilidades puntuales */
+
+:root {
+  --color-primary: #0ea5e9;
+  --color-primary-dark: #0369a1;
+  --color-secondary: #0b2545;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+/* Scroll-snap para el carrusel de marcas y el de testimonios */
+.snap-row {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.snap-item {
+  scroll-snap-align: start;
+}
+
+.snap-row::-webkit-scrollbar {
+  display: none;
+}
+
+.snap-row {
+  scrollbar-width: none;
+}
+
+/* Pulso sutil del botón flotante de WhatsApp */
+@keyframes pulse-soft {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(14, 165, 233, 0);
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2.5s ease-in-out infinite;
+}
+
+/* Tooltip del botón flotante */
+.wa-tooltip {
+  opacity: 0;
+  transform: translateX(8px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.wa-fab:hover .wa-tooltip,
+.wa-fab:focus-visible .wa-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Acordeón FAQ: rotación del ícono chevron */
+.faq-chevron {
+  transition: transform 0.25s ease;
+}
+
+.faq-item[data-open="true"] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-item[data-open="true"] .faq-panel {
+  max-height: 24rem;
+}
+
+/* Marquee de marcas: loop infinito, se pausa al pasar el cursor */
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.marquee-track {
+  width: max-content;
+  animation: marquee-scroll 26s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Dropdown de Servicios en el header */
+.services-dropdown {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.services-dropdown.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Menú mobile */
+.mobile-menu {
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu.is-open {
+  transform: translateX(0);
+}
